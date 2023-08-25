@@ -91,6 +91,7 @@ def load_and_process_data():
     # Process klines data and create a DataFrame
     all_data = {sym: get_data(data) for sym, data in data.items()}
     df = pd.concat(all_data.values(), keys=all_data.keys())
+    df.index.names = ['symbol', '#']
     return df
 
 
